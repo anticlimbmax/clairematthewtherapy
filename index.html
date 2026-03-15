@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claire Matthew | Person-Centred Counsellor &amp; EMDR Practitioner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sage:       #8aab8a;
+      --sage-light: #c8dcc8;
+      --sage-pale:  #eaf2ea;
+      --lavender:   #b8a8c8;
+      --lav-light:  #e8e0f0;
+      --lav-pale:   #f5f0fa;
+      --earth:      #c4a882;
+      --earth-light:#eddfc8;
+      --earth-pale: #faf5ef;
+      --moss:       #4a6741;
+      --bark:       #5c4a3a;
+      --cream:      #fdfaf5;
+      --parchment:  #f7f2ea;
+      --text:       #2d2820;
+      --text-soft:  #5a4e44;
+      --text-muted: #8a7e74;
+      --white:      #ffffff;
+      --shadow:     rgba(45,40,32,0.10);
+      --shadow-soft:rgba(45,40,32,0.06);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── BOTANICAL SVG ELEMENTS ── */
+    .botanical-bg {
+      position: absolute; pointer-events: none; opacity: 0.18;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(253,250,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--earth-light);
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px var(--shadow-soft); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--moss);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--earth); }
+
+    .nav-links {
+      display: flex; gap: 1.5rem; list-style: none; align-items: center;
+    }
+    .nav-links li {
+      display: flex; align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-soft);
+      text-decoration: none; transition: color 0.2s;
+      text-align: center; line-height: 1.2;
+    }
+    .nav-links a:hover { color: var(--moss); }
+
+    .nav-cta {
+      background: var(--moss); color: var(--white) !important;
+      padding: 0.55rem 1.1rem; border-radius: 2rem;
+      transition: background 0.2s, transform 0.2s !important;
+      white-space: nowrap;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .nav-cta:hover { background: var(--bark) !important; transform: translateY(-1px); }
+
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text-soft); border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 5vw, 5rem) clamp(3rem, 8vw, 7rem) clamp(2rem, 6vw, 7rem);
+      position: relative; z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--earth); font-weight: 500; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: var(--earth);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--moss);
+      font-weight: 300;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 300; font-style: italic;
+      color: var(--earth); margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-style: italic; font-weight: 300;
+      color: var(--text-soft); max-width: 460px;
+      border-left: 2px solid var(--sage);
+      padding-left: 1.25rem; margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    .hero-quote cite { display: block; font-size: 0.8rem; font-style: normal; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--moss); color: var(--white);
+      padding: 0.9rem 2rem; border-radius: 2rem;
+      font-size: 0.9rem; font-weight: 400; letter-spacing: 0.04em;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(74,103,65,0.25);
+    }
+    .btn-primary:hover { background: var(--bark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(74,103,65,0.3); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--moss);
+      padding: 0.9rem 2rem; border-radius: 2rem;
+      font-size: 0.9rem; font-weight: 400; letter-spacing: 0.04em;
+      text-decoration: none; border: 1.5px solid var(--sage);
+      transition: all 0.25s; cursor: pointer;
+    }
+    .btn-secondary:hover { background: var(--sage-pale); border-color: var(--moss); }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--sage-pale) 0%, var(--lav-pale) 50%, var(--earth-pale) 100%);
+    }
+
+    .hero-image-frame {
+      position: absolute; inset: 3rem 2rem;
+      border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+      overflow: hidden;
+      box-shadow: 0 20px 60px var(--shadow);
+      animation: morphBlob 12s ease-in-out infinite alternate;
+      background: var(--sage-pale);
+    }
+    @keyframes morphBlob {
+      0%  { border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+      50% { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+      100%{ border-radius: 55% 45% 60% 40% / 45% 55% 50% 50%; }
+    }
+    .hero-image-frame img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: saturate(0.95) brightness(1.03);
+    }
+
+    .hero-badge {
+      position: absolute; bottom: 4rem; left: -1rem;
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 32px var(--shadow);
+      display: flex; align-items: center; gap: 0.75rem;
+      z-index: 3; animation: floatBadge 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatBadge {
+      0%  { transform: translateY(0); }
+      100%{ transform: translateY(-8px); }
+    }
+    .badge-icon { font-size: 1.8rem; }
+    .badge-text { font-size: 0.75rem; color: var(--text-soft); }
+    .badge-text strong { display: block; font-size: 0.9rem; color: var(--moss); font-weight: 500; }
+
+    /* ── HERO PETAL RAIN ── */
+    #petal-rain {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1; overflow: hidden;
+    }
+    .hero-petal {
+      position: absolute; pointer-events: none;
+      animation: driftPetal linear infinite;
+      opacity: 0;
+    }
+    @keyframes driftPetal {
+      0%   { transform: translateY(-40px) rotate(0deg) translateX(0);   opacity: 0; }
+      8%   { opacity: 0.7; }
+      88%  { opacity: 0.5; }
+      100% { transform: translateY(105vh) rotate(400deg) translateX(80px); opacity: 0; }
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: var(--moss); color: var(--white);
+      padding: 3rem clamp(2rem, 6vw, 7rem);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .intro-stat { text-align: center; }
+    .intro-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 300; display: block;
+      color: var(--earth-light);
+    }
+    .intro-stat .label { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+
+    /* ── SECTION DEFAULTS ── */
+    section { padding: clamp(4rem, 8vw, 8rem) clamp(2rem, 6vw, 7rem); }
+
+    .section-tag {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--earth); font-weight: 500; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--earth); }
+
+    h2.section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300; line-height: 1.2;
+      color: var(--text); margin-bottom: 1.5rem;
+    }
+    h2.section-title em { font-style: italic; color: var(--moss); }
+
+    .section-lead {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: var(--text-soft); max-width: 560px;
+      line-height: 1.8; margin-bottom: 3rem;
+    }
+    /* When section is single-column (stacked), lead paragraph fills available width */
+    .services-intro .section-lead,
+    .help-grid-wrapper > div > .section-lead,
+    #fees > .section-lead,
+    #supervision > div > .section-lead {
+      max-width: 100%;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--parchment);
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    .about-images {
+      position: relative; height: 520px;
+    }
+    .about-img-main {
+      position: absolute; top: 0; left: 0;
+      width: 74%; height: 75%;
+      border-radius: 2rem 6rem 2rem 2rem;
+      overflow: hidden;
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+    .about-img-secondary {
+      position: absolute; bottom: 0; right: 0;
+      width: 52%; height: 48%;
+      border-radius: 2rem 2rem 6rem 2rem;
+      overflow: hidden;
+      box-shadow: 0 12px 36px var(--shadow);
+      border: 4px solid var(--white);
+    }
+    .about-img-main img, .about-img-secondary img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .about-content p {
+      font-size: 0.93rem; color: var(--text-soft);
+      line-height: 1.9; margin-bottom: 1.5rem;
+    }
+    .about-content p:last-of-type { margin-bottom: 0; }
+
+    .about-content .values {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;
+    }
+    .value-pill {
+      background: var(--white); border: 1px solid var(--sage-light);
+      color: var(--moss); font-size: 0.8rem; font-weight: 400;
+      padding: 0.35rem 0.9rem; border-radius: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .claire-signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-style: italic; font-weight: 300;
+      color: var(--earth); margin-top: 2rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+
+    .services-intro {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start; margin-bottom: 5rem;
+    }
+
+    .service-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid transparent;
+      box-shadow: 0 4px 20px var(--shadow-soft);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      border-radius: 1.5rem 1.5rem 0 0;
+    }
+    .service-card.green::before { background: linear-gradient(90deg, var(--sage), var(--moss)); }
+    .service-card.lavender::before { background: linear-gradient(90deg, var(--lavender), #9b7ec8); }
+    .service-card.earth::before { background: linear-gradient(90deg, var(--earth), var(--bark)); }
+    .service-card.teal::before { background: linear-gradient(90deg, #7bbfb0, #4a9080); }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px var(--shadow);
+      border-color: var(--sage-light);
+    }
+
+    .card-icon { font-size: 2.5rem; margin-bottom: 1.25rem; }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 500; margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .card-desc { font-size: 0.9rem; color: var(--text-soft); line-height: 1.7; }
+    .card-tag {
+      display: inline-block; margin-top: 1.25rem;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--moss); font-weight: 500;
+    }
+
+    /* ── HOW I CAN HELP ── */
+    #help {
+      background: var(--sage-pale);
+      position: relative; overflow: hidden;
+    }
+    .help-grid-wrapper {
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 5rem; align-items: start;
+    }
+    .help-categories {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .help-category h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 500;
+      color: var(--moss); margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--sage-light);
+    }
+    .help-category ul { list-style: none; }
+    .help-category li {
+      font-size: 0.87rem; color: var(--text-soft);
+      padding: 0.25rem 0;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .help-category li::before {
+      content: '✦'; font-size: 0.5rem; color: var(--sage); flex-shrink: 0;
+    }
+
+    /* ── FEES ── */
+    #fees { background: var(--lav-pale); }
+    .fees-content {
+      max-width: 900px; margin: 0 auto;
+    }
+    .fees-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .fee-card {
+      background: var(--white);
+      border-radius: 1.5rem; padding: 2.5rem;
+      box-shadow: 0 4px 20px var(--shadow-soft);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .fee-card:hover { transform: translateY(-4px); }
+    .fee-type {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--text); margin-bottom: 0.5rem;
+    }
+    .fee-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem; font-weight: 300;
+      color: var(--moss); line-height: 1;
+    }
+    .fee-price sup { font-size: 1.5rem; vertical-align: super; }
+    .fee-price .per { font-size: 1rem; color: var(--text-muted); font-family: 'DM Sans', sans-serif; }
+    .fee-note { font-size: 0.85rem; color: var(--text-soft); margin-top: 1rem; line-height: 1.6; }
+
+    .concessions {
+      margin-top: 3rem;
+      background: var(--white); border-radius: 1.5rem;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 4px 20px var(--shadow-soft);
+    }
+    .concessions h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--text); margin-bottom: 1rem;
+    }
+    .concession-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .concession-tag {
+      background: var(--sage-pale); border: 1px solid var(--sage-light);
+      color: var(--moss); font-size: 0.82rem; padding: 0.35rem 1rem; border-radius: 2rem;
+    }
+
+    .online-notice {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, var(--moss), #3a5531);
+      color: var(--white); border-radius: 1.5rem;
+      padding: 2rem 2.5rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
+    .online-notice .notice-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .online-notice h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 0.4rem; }
+    .online-notice p { font-size: 0.88rem; opacity: 0.88; line-height: 1.7; }
+
+    /* ── SUPERVISION ── */
+    #supervision {
+      background: var(--earth-pale);
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .supervision-img {
+      border-radius: 2rem; overflow: hidden;
+      height: 480px;
+      box-shadow: 0 16px 48px var(--shadow);
+    }
+    .supervision-img img { width: 100%; height: 100%; object-fit: cover; }
+    .supervision-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .sup-feature {
+      background: var(--white); border-radius: 1rem;
+      padding: 1.25rem; font-size: 0.87rem;
+      color: var(--text-soft); line-height: 1.6;
+      border-left: 3px solid var(--earth);
+    }
+    .sup-feature strong { display: block; color: var(--text); margin-bottom: 0.25rem; font-size: 0.9rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--parchment); }
+    .contact-wrapper {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem; align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem;
+    }
+    .contact-info p { font-size: 0.9rem; color: var(--text-soft); margin-bottom: 2rem; line-height: 1.8; }
+
+    .consultation-box {
+      background: linear-gradient(135deg, var(--sage-pale), var(--lav-pale));
+      border: 1px solid var(--sage-light);
+      border-radius: 1.5rem; padding: 2rem;
+      margin-top: 2rem;
+    }
+    .consultation-box .cta-highlight {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 400; color: var(--moss);
+      margin-bottom: 0.5rem;
+    }
+    .consultation-box p { font-size: 0.87rem; color: var(--text-soft); margin-bottom: 1.25rem; line-height: 1.7; }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: 2rem; padding: 3rem;
+      box-shadow: 0 8px 40px var(--shadow-soft);
+    }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block; font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--earth-light);
+      border-radius: 0.75rem;
+      padding: 0.875rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.93rem; font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--sage); box-shadow: 0 0 0 3px rgba(138,171,138,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit { width: 100%; }
+    .form-privacy { font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.75);
+      padding: 4rem clamp(2rem, 6vw, 7rem) 2.5rem;
+    }
+    .footer-main {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem; padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+    .footer-brand .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .footer-brand p { font-size: 0.87rem; line-height: 1.8; max-width: 300px; }
+    .footer-links h4 {
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--earth-light); margin-bottom: 1.25rem; font-weight: 500;
+    }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 0.6rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      font-size: 0.88rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sage-light); }
+
+    .trust-badges {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
+    }
+    .trust-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 0.75rem; padding: 0.6rem 1rem;
+      font-size: 0.75rem; color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 960px) {
+      #home { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 55vw; min-height: 300px; }
+      .hero-image-frame { inset: 2rem 3rem; }
+
+      /* About: show text first, images second */
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-images { height: 380px; order: 2; }
+      .about-content { order: 1; }
+
+      .services-intro { grid-template-columns: 1fr; gap: 2rem; }
+      .help-grid-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+      .help-categories { grid-template-columns: 1fr 1fr; }
+      .fees-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Supervision: show text first, image second */
+      #supervision { grid-template-columns: 1fr; gap: 2rem; }
+      .supervision-img { height: 300px; order: 2; }
+      #supervision > div:not(.supervision-img) { order: 1; }
+
+      .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* Hamburger kicks in at 1100px */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+        background: var(--cream);
+        padding: 2rem 2.5rem;
+        gap: 0;
+        box-shadow: 0 8px 24px var(--shadow-soft);
+        overflow-y: auto;
+        z-index: 99;
+      }
+      .nav-links.open li {
+        border-bottom: 1px solid var(--earth-light);
+      }
+      .nav-links.open li:last-child {
+        border-bottom: none; padding-top: 1.5rem;
+      }
+      .nav-links.open a {
+        display: block; padding: 1rem 0;
+        font-size: 1rem; letter-spacing: 0.04em;
+        color: var(--text-soft);
+      }
+      .nav-links.open .nav-cta {
+        display: inline-flex;
+        background: var(--moss); color: var(--white) !important;
+        padding: 0.75rem 1.5rem; border-radius: 2rem;
+        text-align: center; justify-content: center;
+      }
+      .nav-hamburger { display: flex; }
+      /* Animate hamburger to X when open */
+      .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    /* Intro strip: 2x2 at tablet */
+    @media (max-width: 760px) {
+      .intro-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Section leads go full width when stacked */
+    @media (max-width: 960px) {
+      .services-intro .section-lead,
+      .help-grid-wrapper > div > .section-lead,
+      #fees > .section-lead,
+      #supervision .section-lead {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .help-categories { grid-template-columns: 1fr; }
+      .fees-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .supervision-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="mainNav" role="navigation" aria-label="Main navigation">
+  <a href="#home" class="nav-logo" aria-label="Claire Matthew Therapy home">
+    Claire <span>Matthew</span>
+  </a>
+  <ul class="nav-links" id="navLinks" role="list">
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#help">How I Can Help</a></li>
+    <li><a href="#fees">Fees</a></li>
+    <li><a href="#supervision">Supervision</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home" aria-label="Welcome" style="position:relative;">
+  <!-- Petal rain spans full hero width -->
+  <div id="petal-rain" aria-hidden="true">
+    <div class="hero-petal" style="left:3%;animation-duration:14.3s;animation-delay:0s;font-size:1.1rem">🌸</div>
+    <div class="hero-petal" style="left:9%;animation-duration:18.2s;animation-delay:4s;font-size:0.8rem">🍃</div>
+    <div class="hero-petal" style="left:15%;animation-duration:11.7s;animation-delay:8s;font-size:1rem">🌺</div>
+    <div class="hero-petal" style="left:22%;animation-duration:16.9s;animation-delay:1.5s;font-size:0.7rem">🌿</div>
+    <div class="hero-petal" style="left:29%;animation-duration:13s;animation-delay:10s;font-size:1.2rem">🌸</div>
+    <div class="hero-petal" style="left:36%;animation-duration:19.5s;animation-delay:3s;font-size:0.9rem">🍃</div>
+    <div class="hero-petal" style="left:43%;animation-duration:14.3s;animation-delay:7s;font-size:0.75rem">🌺</div>
+    <div class="hero-petal" style="left:50%;animation-duration:15.6s;animation-delay:12s;font-size:1rem">🌿</div>
+    <div class="hero-petal" style="left:57%;animation-duration:11.7s;animation-delay:0.5s;font-size:1.3rem">🌸</div>
+    <div class="hero-petal" style="left:63%;animation-duration:18.2s;animation-delay:5.5s;font-size:0.8rem">🍃</div>
+    <div class="hero-petal" style="left:70%;animation-duration:13s;animation-delay:9s;font-size:1rem">🌺</div>
+    <div class="hero-petal" style="left:77%;animation-duration:16.9s;animation-delay:3.5s;font-size:0.7rem">🌿</div>
+    <div class="hero-petal" style="left:84%;animation-duration:14.3s;animation-delay:8s;font-size:1.1rem">🌸</div>
+    <div class="hero-petal" style="left:91%;animation-duration:19.5s;animation-delay:2s;font-size:0.85rem">🍃</div>
+    <div class="hero-petal" style="left:97%;animation-duration:11.7s;animation-delay:6s;font-size:1rem">🌺</div>
+  </div>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow">NCPS Accredited · 20+ Years Experience</p>
+    <h1 class="hero-title">
+      A space to<br><em>blossom</em><br>and breathe.
+    </h1>
+    <p class="hero-subtitle">Person-Centred Therapy &amp; EMDR · Online Sessions</p>
+    <blockquote class="hero-quote">
+      "And the day came when the risk to remain tight in a bud was more painful than the risk it took to blossom."
+      <cite>- Anaïs Nin</cite>
+    </blockquote>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Free 15-min Consultation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-image-frame">
+      <!-- Replace src with Claire's professional headshot -->
+      <img
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+        alt="Claire, Person-Centred Therapist and EMDR Practitioner"
+        loading="eager"
+      />
+    </div>
+    <div class="hero-badge">
+      <div class="badge-icon">🌿</div>
+      <div class="badge-text">
+        <strong>NCPS Accredited</strong>
+        Fully insured &amp; registered
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTRO STATS ── -->
+<div class="intro-strip" role="region" aria-label="At a glance">
+  <div class="intro-stat">
+    <span class="num">20+</span>
+    <span class="label">Years of Experience</span>
+  </div>
+  <div class="intro-stat">
+    <span class="num">EMDR</span>
+    <span class="label">Trained Practitioner</span>
+  </div>
+  <div class="intro-stat">
+    <span class="num">L7</span>
+    <span class="label">Clinical Supervisor</span>
+  </div>
+  <div class="intro-stat">
+    <span class="num">CYP</span>
+    <span class="label">Children &amp; Young People</span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" aria-label="About Claire">
+  <div class="about-images" aria-hidden="true">
+    <div class="about-img-main">
+      <!-- Replace: Claire working / warm professional photo -->
+      <img
+        src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80"
+        alt="Claire in a therapy session environment"
+        loading="lazy"
+      />
+    </div>
+    <div class="about-img-secondary">
+      <!-- Replace: Claire headshot / casual warm photo -->
+      <img
+        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80"
+        alt="Claire, warm professional portrait"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="about-content">
+    <p class="section-tag">About Me</p>
+    <h2 class="section-title">Navigating <em>troubled waters</em><br>- together.</h2>
+    <p>
+      Hello, my name is Claire. With over 20 years of experience as a Person-Centred Therapist, EMDR Practitioner, and Clinical Supervisor, I offer a warm, safe, and non-judgemental space where you can reflect, heal, and grow - at your own pace.
+    </p>
+    <p>
+      I am deeply committed to empathy as the foundation of everything I do. I am also neurodivergent-affirming, LGBTQ+ inclusive, and openly respectful of spiritual and paranormal experiences. I believe in meeting you exactly where you are - whatever that looks like.
+    </p>
+    <p>
+      I currently work alongside a specialist suicide bereavement charity and hold a Level 7 Certificate in Clinical Supervision. My experience spans trauma, domestic violence, self-harm, eating disorders, bereavement, chronic illness, addiction, and much more.
+    </p>
+
+    <div class="values" role="list" aria-label="Claire's values and approach">
+      <span class="value-pill" role="listitem">Person-Centred</span>
+      <span class="value-pill" role="listitem">ND Affirming</span>
+      <span class="value-pill" role="listitem">LGBTQ+ Inclusive</span>
+      <span class="value-pill" role="listitem">Spirituality-Open</span>
+      <span class="value-pill" role="listitem">Trauma-Informed</span>
+      <span class="value-pill" role="listitem">EMDR Trained</span>
+      <span class="value-pill" role="listitem">NCPS Accredited</span>
+      <span class="value-pill" role="listitem">WPA Recognised</span>
+    </div>
+    <div class="claire-signature" aria-hidden="true">Claire x</div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services" aria-label="Services offered">
+  <div class="services-intro">
+    <div>
+      <p class="section-tag">Services</p>
+      <h2 class="section-title">How we can <em>work together</em></h2>
+    </div>
+    <p class="section-lead" style="margin-bottom:0;">
+      All sessions are held online, giving you the freedom and safety of your own space. I offer a range of therapeutic approaches tailored to your unique needs - there is no one-size-fits-all here.
+    </p>
+  </div>
+
+  <div class="service-cards">
+    <article class="service-card green fade-up" tabindex="0" style="transition-delay:0s">
+      <div class="card-icon" aria-hidden="true">🧠</div>
+      <h3 class="card-title">Person-Centred Therapy</h3>
+      <p class="card-desc">A warm, collaborative approach placing you at the heart of your healing. Together we explore your feelings and experiences in a space free from judgement, at the pace that feels right for you.</p>
+      <span class="card-tag">Level 4 Qualified · NCPS Accredited</span>
+    </article>
+
+    <article class="service-card lavender fade-up" tabindex="0" style="transition-delay:0.12s">
+      <div class="card-icon" aria-hidden="true">🔵</div>
+      <h3 class="card-title">EMDR Therapy</h3>
+      <p class="card-desc">Eye Movement Desensitisation and Reprocessing - a powerful, evidence-based approach for processing trauma. Available for both adults and children and young people (CYP) online.</p>
+      <span class="card-tag">Adults &amp; Children · £90 per session</span>
+    </article>
+
+    <article class="service-card earth fade-up" tabindex="0" style="transition-delay:0.24s">
+      <div class="card-icon" aria-hidden="true">🕊️</div>
+      <h3 class="card-title">Suicide Bereavement</h3>
+      <p class="card-desc">Specialist support for those who have experienced the devastating loss of a loved one to suicide. This deeply meaningful work is offered with the highest level of compassion and care.</p>
+      <span class="card-tag">Specialist Service · Charity Affiliated</span>
+    </article>
+
+    <article class="service-card teal fade-up" tabindex="0" style="transition-delay:0s">
+      <div class="card-icon" aria-hidden="true">🌱</div>
+      <h3 class="card-title">Clinical Supervision</h3>
+      <p class="card-desc">Level 7 Clinical Supervision for trainee and qualified counsellors. A thoughtful, supportive reflective space to develop your professional practice and wellbeing.</p>
+      <span class="card-tag">Level 7 Certificate · Trainee &amp; Qualified</span>
+    </article>
+
+    <article class="service-card green fade-up" tabindex="0" style="transition-delay:0.12s">
+      <div class="card-icon" aria-hidden="true">🧒</div>
+      <h3 class="card-title">Children &amp; Young People</h3>
+      <p class="card-desc">Extensive CYP experience, formerly affiliated with CAMHS and NHS. I offer a safe, age-appropriate, neurodivergent-affirming space for young people to be heard.</p>
+      <span class="card-tag">CYP Therapist · CAMHS Affiliated</span>
+    </article>
+
+    <article class="service-card lavender fade-up" tabindex="0" style="transition-delay:0.24s">
+      <div class="card-icon" aria-hidden="true">💜</div>
+      <h3 class="card-title">Integrative &amp; Eclectic</h3>
+      <p class="card-desc">Drawing from compassion-focused therapy, narrative therapy, ecotherapy, and more - I adapt my approach to serve what you need, not a fixed model.</p>
+      <span class="card-tag">Humanistic · Integrative · Kink-Aware</span>
+    </article>
+  </div>
+</section>
+
+<!-- ── HOW I CAN HELP ── -->
+<section id="help" aria-label="Areas Claire can help with">
+  <div class="help-grid-wrapper">
+    <div>
+      <p class="section-tag">How I Can Help</p>
+      <h2 class="section-title">You don't have to<br><em>carry this alone</em></h2>
+      <p class="section-lead">My experience spans a wide range of human experiences. Whatever brings you here - you are welcome.</p>
+      <a href="#contact" class="btn-primary">Start the Conversation</a>
+    </div>
+
+    <div class="help-categories" role="list">
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0s">
+        <h3>Trauma &amp; Abuse</h3>
+        <ul aria-label="Trauma and abuse areas">
+          <li>Complex PTSD &amp; Trauma</li>
+          <li>Domestic Abuse</li>
+          <li>Sexual Abuse (current &amp; historical)</li>
+          <li>Emotional &amp; Physical Abuse</li>
+          <li>Narcissistic Abuse</li>
+          <li>Childhood Trauma</li>
+        </ul>
+      </div>
+
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0.12s">
+        <h3>Mental Health</h3>
+        <ul aria-label="Mental health areas">
+          <li>Anxiety &amp; GAD</li>
+          <li>Depression</li>
+          <li>Panic Attacks</li>
+          <li>OCD &amp; Phobias</li>
+          <li>Bipolar Disorder</li>
+          <li>BPD &amp; Personality Disorders</li>
+          <li>Social Anxiety</li>
+        </ul>
+      </div>
+
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0.24s">
+        <h3>Grief &amp; Loss</h3>
+        <ul aria-label="Grief and loss areas">
+          <li>Bereavement</li>
+          <li>Suicide Bereavement</li>
+          <li>Childhood Bereavement</li>
+          <li>Miscarriage &amp; Infertility</li>
+          <li>Separation &amp; Divorce</li>
+          <li>Relationship Loss</li>
+        </ul>
+      </div>
+
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0s">
+        <h3>Identity &amp; Self</h3>
+        <ul aria-label="Identity and self areas">
+          <li>Low Self-Esteem &amp; Confidence</li>
+          <li>LGBTQ+ Counselling</li>
+          <li>Race &amp; Racial Identity</li>
+          <li>Neurodiversity (ND-Affirming)</li>
+          <li>Autism &amp; ADHD</li>
+          <li>Spirituality</li>
+        </ul>
+      </div>
+
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0.12s">
+        <h3>Life Challenges</h3>
+        <ul aria-label="Life challenge areas">
+          <li>Work-Related Stress &amp; Burnout</li>
+          <li>Chronic Illness &amp; Disability</li>
+          <li>Postnatal Depression</li>
+          <li>Menopause</li>
+          <li>Addiction &amp; Eating Disorders</li>
+          <li>Carer Support</li>
+        </ul>
+      </div>
+
+      <div class="help-category fade-up" role="listitem" style="transition-delay:0.24s">
+        <h3>Young People</h3>
+        <ul aria-label="Young people areas">
+          <li>Childhood Anxiety &amp; Depression</li>
+          <li>Childhood Bullying</li>
+          <li>Attachment Disorder</li>
+          <li>Self-Harm</li>
+          <li>Behaviour Problems</li>
+          <li>Young Carers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEES ── -->
+<section id="fees" aria-label="Fees and pricing">
+  <p class="section-tag">Fees &amp; Practicalities</p>
+  <h2 class="section-title">Transparent, <em>accessible pricing</em></h2>
+  <p class="section-lead">I believe therapy should be as accessible as possible. Concessions are available - please do reach out.</p>
+
+  <div class="fees-content">
+    <div class="fees-grid">
+      <div class="fee-card">
+        <div class="fee-type">Person-Centred Therapy</div>
+        <div class="fee-price"><sup>£</sup>60<span class="per"> / session</span></div>
+        <p class="fee-note">50-minute sessions via secure video call. Flexible scheduling across seven days.</p>
+      </div>
+      <div class="fee-card">
+        <div class="fee-type">EMDR Therapy</div>
+        <div class="fee-price"><sup>£</sup>90<span class="per"> / session</span></div>
+        <p class="fee-note">Full EMDR sessions for adults and children. Recognised by WPA health insurance.</p>
+      </div>
+    </div>
+
+    <div class="concessions" role="region" aria-label="Concessions available">
+      <h3>Concessions Available</h3>
+      <p style="font-size:0.88rem;color:var(--text-soft);margin-bottom:1rem;line-height:1.7;">
+        I am committed to making therapy accessible. Reduced fees are available for those who need them - please mention this when you get in touch.
+      </p>
+      <div class="concession-tags" role="list" aria-label="Groups eligible for concessions">
+        <span class="concession-tag" role="listitem">Low Income</span>
+        <span class="concession-tag" role="listitem">OAPs / Older Adults</span>
+        <span class="concession-tag" role="listitem">Unemployed</span>
+        <span class="concession-tag" role="listitem">Refugees</span>
+        <span class="concession-tag" role="listitem">Trainee Counsellors</span>
+      </div>
+    </div>
+
+    <div class="online-notice" role="note" aria-label="Online sessions information">
+      <div class="notice-icon" aria-hidden="true">💻</div>
+      <div>
+        <h3>Online Sessions Only</h3>
+        <p>All therapy takes place via secure video or telephone call - from the comfort and safety of your own home. This means no travel, no waiting rooms, and complete privacy wherever you feel most at ease.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUPERVISION ── -->
+<section id="supervision" aria-label="Clinical supervision services">
+  <div class="supervision-img" aria-hidden="true">
+    <!-- Replace: professional/study/reflective image -->
+    <img
+      src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80"
+      alt="Reflective clinical supervision environment"
+      loading="lazy"
+    />
+  </div>
+
+  <div>
+    <p class="section-tag">For Fellow Practitioners</p>
+    <h2 class="section-title">Clinical <em>Supervision</em></h2>
+    <p class="section-lead">
+      Holding space for others requires that someone holds space for you. My Level 7 Clinical Supervision offers a professional, warm, reflective environment to support your growth and wellbeing as a counsellor.
+    </p>
+    <p style="font-size:0.9rem;color:var(--text-soft);line-height:1.9;margin-bottom:2rem;">
+      Whether you are in training or an experienced practitioner, I offer individual and peer supervision online. Drawing on 20+ years of frontline therapeutic experience - across CAMHS, NHS, charity, and private practice settings - I provide a thoughtful, evidence-informed, and deeply human supervisory space.
+    </p>
+
+    <div class="supervision-features">
+      <div class="sup-feature"><strong>Individual Supervision</strong> One-to-one reflective sessions for trainees and qualified counsellors.</div>
+      <div class="sup-feature"><strong>Level 7 Qualified</strong> Holding a Level 7 Certificate in Clinical Supervision.</div>
+      <div class="sup-feature"><strong>NCPS Registered</strong> Fully accredited and insured supervisory practice.</div>
+      <div class="sup-feature"><strong>ND Affirming</strong> Supervision that honours neurodivergent ways of working.</div>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <a href="#contact" class="btn-primary">Enquire About Supervision</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" aria-label="Contact and booking">
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <p class="section-tag">Get in Touch</p>
+      <h2 class="section-title">Take the <em>first step</em></h2>
+      <p>Reaching out takes courage - and I am honoured you are here. Whether you have a question, want to know more about my services, or are ready to begin, I would love to hear from you.</p>
+      <h3>Free 15-Minute Telephone Consultation</h3>
+      <p>I offer a free, no-obligation 15-minute telephone consultation so we can see if we are a good fit before committing to anything. There is no pressure - just a gentle, open conversation.</p>
+
+      <div class="consultation-box" role="note">
+        <p class="cta-highlight">☎ Free Initial Consultation</p>
+        <p>A confidential 15-minute telephone call to introduce yourself, ask any questions, and explore whether working together feels right.</p>
+        <a href="#contactForm" class="btn-primary">Request a Call Back</a>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contactForm" aria-label="Contact form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="firstName" name="firstName" placeholder="Your first name" required autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Your last name" autocomplete="family-name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="contactMethod">Preferred Contact Method</label>
+        <select id="contactMethod" name="contactMethod">
+          <option value="">Please select…</option>
+          <option value="email">Email</option>
+          <option value="telephone">Telephone</option>
+          <option value="video">Video Call</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="enquiryType">I am enquiring about…</label>
+        <select id="enquiryType" name="enquiryType">
+          <option value="">Please select…</option>
+          <option value="free-consultation">Free 15-Minute Consultation</option>
+          <option value="person-centred">Person-Centred Therapy</option>
+          <option value="emdr">EMDR Therapy</option>
+          <option value="suicide-bereavement">Suicide Bereavement Support</option>
+          <option value="supervision">Clinical Supervision</option>
+          <option value="young-people">Children &amp; Young People</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">What's on your mind? <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:0.75rem;color:var(--text-muted)">(Optional - share as much or as little as you like)</span></label>
+        <textarea id="message" name="message" placeholder="You don't need to have all the words - a few sentences is perfectly fine…"></textarea>
+      </div>
+      <button type="submit" class="btn-primary form-submit" id="submitBtn">
+        Send Message
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <p class="form-privacy" role="note">
+        🔒 Your message is completely confidential. I will never share your details with anyone.
+      </p>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer role="contentinfo">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="logo">Claire Matthew</div>
+      <p>A warm, professional online therapy practice offering Person-Centred Counselling, EMDR, Suicide Bereavement support, and Clinical Supervision. NCPS Accredited. Online sessions only.</p>
+      <div class="trust-badges" role="list" aria-label="Professional accreditations">
+        <span class="trust-badge" role="listitem">✦ NCPS Accredited</span>
+        <span class="trust-badge" role="listitem">✦ Fully Insured</span>
+        <span class="trust-badge" role="listitem">✦ WPA Recognised</span>
+        <span class="trust-badge" role="listitem">✦ Level 7 Supervisor</span>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#help">How I Can Help</a></li>
+        <li><a href="#fees">Fees</a></li>
+        <li><a href="#supervision">Clinical Supervision</a></li>
+        <li><a href="#contact">Contact &amp; Booking</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Person-Centred Therapy</a></li>
+        <li><a href="#services">EMDR Therapy</a></li>
+        <li><a href="#services">Suicide Bereavement</a></li>
+        <li><a href="#supervision">Clinical Supervision</a></li>
+        <li><a href="#services">Children &amp; Young People</a></li>
+        <li><a href="#contact">Free Consultation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Claire Matthew · All Rights Reserved</span>
+    <span>Online Therapy · NCPS Member · Site designed by Max Matthew</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  // Close nav on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Intersection observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Contact form - basic accessible submission feedback
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = '✓ Message sent - thank you!';
+    btn.style.background = 'var(--sage)';
+    btn.disabled = true;
+    // In production: connect to Formspree, Netlify Forms, or your own backend
+  });
+</script>
+</body>
+</html>
